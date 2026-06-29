@@ -42,7 +42,7 @@ It is useful for:
 ## Getting Started
 
 ### Prerequisites
-- Python 3.7+
+- Python 3.9+
 
 ### Run it
 
