@@ -57,7 +57,7 @@ python3 expense_tracker.py
 You'll see a main menu like this:
 
 ```
-📱 APP NAVIGATION MENU:
+APP NAVIGATION MENU:
 [1] Log New Transaction (Expense/Income)
 [2] Analytics & Category Breakdown
 [3] Financial Goals Tracker
@@ -84,6 +84,17 @@ Expense-Tracker/
 │
 └── .gitignore                  # Optional
 ```
+
+## Future Web Application Direction
+
+This project is prepared for future conversion into a proper web application.
+
+Potential next steps:
+- Build a frontend using HTML, CSS, JavaScript, React, or another web framework
+- Recreate the Figma screens as responsive UI pages
+- Use the icons stored in the project folder for a consistent design system
+- Connect Python logic to a backend API using Flask or FastAPI
+- Store transactions and goals in JSON, SQLite, or a full database
 
 ## Roadmap
 
