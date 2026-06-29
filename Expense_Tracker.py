@@ -28,7 +28,7 @@ class ExpenseTracker:
 
     # --- Feature 1: Add New Transaction ---
     def add_transaction(self):
-        print("\n--- ➕ NEW TRANSACTION ---")
+        print("\n--- NEW TRANSACTION ---")
         t_type = input("Select Type (1 for Expense, 2 for Income): ").strip()
         t_type = "Expense" if t_type == "1" else "Income"
         
@@ -54,11 +54,11 @@ class ExpenseTracker:
             "amount": amount,
             "note": note
         })
-        print(f"✅ Success! {t_type} of ${amount:,.2f} recorded under '{category}'.")
+        print(f" Success! {t_type} of ${amount:,.2f} recorded under '{category}'.")
 
     # --- Feature 2: Analytics & Breakdown (Pie Chart Representation) ---
     def view_analytics(self):
-        print("\n--- 📊 ANALYTICS BREAKDOWN ---")
+        print("\n--- ANALYTICS BREAKDOWN ---")
         t_type = input("Select Breakdown (1 for Expense, 2 for Income): ").strip()
         target_type = "Expense" if t_type == "1" else "Income"
         
@@ -79,17 +79,17 @@ class ExpenseTracker:
         for cat, amt in sorted(cat_totals.items(), key=lambda item: item[1], reverse=True):
             percentage = (amt / total_amt) * 100
             # Visually simulate a distribution bar based on the UX chart percentages
-            bar = "▓" * int(percentage // 5)
+            bar = "||" * int(percentage // 5)
             print(f"{percentage:3.0f}% | {cat:<15} : ${amt:<12,.2f} {bar}")
         print("-" * 50)
 
     # --- Feature 3: Financial Goals Management ---
     def manage_goals(self):
         while True:
-            print("\n--- 🎯 TARGET FINANCIAL GOALS ---")
+            print("\n--- TARGET FINANCIAL GOALS ---")
             for name, data in self.goals.items():
                 progress = (data['saved'] / data['target']) * 100
-                print(f"\n📌 Goal: {name} ({data['note']})")
+                print(f"\n Goal: {name} ({data['note']})")
                 print(f"   Progress: [{progress:.1f}%] Saved: ${data['saved']:,.2f} / Target: ${data['target']:,.2f}")
                 print(f"   Deadline: {data['end_date']}")
             
@@ -103,18 +103,18 @@ class ExpenseTracker:
                 saved = float(input("Already Saved ($): "))
                 date = input("End Date (YYYY-MM-DD): ")
                 self.goals[name] = {"target": target, "saved": saved, "end_date": date, "note": note}
-                print("🎯 Goal created successfully!")
+                print(" Goal created successfully!")
             elif choice == "2":
                 name = input("Enter Goal Name to manage: ")
                 if name in self.goals:
                     action = input("Type 'D' to Delete or 'E' to Edit Saved Amount: ").upper()
                     if action == 'D':
                         del self.goals[name]
-                        print("🗑️ Goal Deleted.")
+                        print(" Goal Deleted.")
                     elif action == 'E':
                         new_saved = float(input("Update Current Saved Amount ($): "))
                         self.goals[name]['saved'] = new_saved
-                        print("✏️ Goal Updated.")
+                        print(" Goal Updated.")
                 else:
                     print("Goal not found.")
             else:
@@ -123,12 +123,12 @@ class ExpenseTracker:
     # --- Feature 4: Overview Dashboard ---
     def show_dashboard(self):
         print("\n=============================================")
-        print(f"👤 USER: {self.username} | WELCOME BACK")
-        print(f"💰 CURRENT WALLET BALANCE: ${self.get_current_balance():,.2f}")
+        print(f" USER: {self.username} | WELCOME BACK")
+        print(f" CURRENT WALLET BALANCE: ${self.get_current_balance():,.2f}")
         print("=============================================")
         
         # Recent Transactions
-        print("\n📋 RECENT TRANSACTIONS (Latest 3)")
+        print("\n RECENT TRANSACTIONS (Latest 3)")
         for t in self.transactions[-3:]:
             sign = "-" if t['type'] == "Expense" else "+"
             print(f"   [{t['date']}] {t['category']:<12} | {sign}${t['amount']:<10,.2f} ({t['note']})")
@@ -137,7 +137,7 @@ class ExpenseTracker:
     def run(self):
         while True:
             self.show_dashboard()
-            print("\n📱 APP NAVIGATION MENU:")
+            print("\n APP NAVIGATION MENU:")
             print("[1] Log New Transaction (Expense/Income)")
             print("[2] Analytics & Category Breakdown")
             print("[3] Financial Goals Tracker")
@@ -154,7 +154,7 @@ class ExpenseTracker:
                 print("\nGoodbye! Keep tracking your spending safely.")
                 break
             else:
-                print("❌ Invalid entry, pick an action code between 1 and 4.")
+                print(" Invalid entry, pick an action code between 1 and 4.")
 
 # Execute Tracker Simulation Engine
 if __name__ == "__main__":
